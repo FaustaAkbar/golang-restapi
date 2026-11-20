@@ -80,10 +80,10 @@ docker compose up -d
 
 Perintah tersebut menjalankan:
 
-| Service | Port |
-| --- | --- |
-| MySQL | `3306` |
-| Redis | `6379` |
+| Service | Port   |
+| ------- | ------ |
+| MySQL   | `3306` |
+| Redis   | `6379` |
 
 ### 4. Jalankan aplikasi
 
@@ -109,20 +109,20 @@ go build -o golang-restapi.exe ./cmd
 
 ## Konfigurasi
 
-| Variable | Deskripsi | Contoh |
-| --- | --- | --- |
-| `MYSQL_DSN` | Connection string MySQL untuk GORM | `root:root@tcp(localhost:3306)/app_db?charset=utf8mb4&parseTime=True&loc=Local` |
-| `REDIS_ADDR` | Alamat Redis | `localhost:6379` |
-| `REDIS_PASSWORD` | Password Redis; kosongkan bila tidak digunakan | _(kosong)_ |
+| Variable         | Deskripsi                                      | Contoh                                                                          |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------------------------------------- |
+| `MYSQL_DSN`      | Connection string MySQL untuk GORM             | `root:root@tcp(localhost:3306)/app_db?charset=utf8mb4&parseTime=True&loc=Local` |
+| `REDIS_ADDR`     | Alamat Redis                                   | `localhost:6379`                                                                |
+| `REDIS_PASSWORD` | Password Redis; kosongkan bila tidak digunakan | _(kosong)_                                                                      |
 
 ## Daftar Endpoint
 
 Base URL: `http://localhost:8080/api/v1`
 
-| Method | Endpoint | Deskripsi |
-| --- | --- | --- |
-| `GET` | `/users` | Mengambil semua user |
-| `POST` | `/users` | Membuat user baru |
+| Method | Endpoint | Deskripsi            |
+| ------ | -------- | -------------------- |
+| `GET`  | `/users` | Mengambil semua user |
+| `POST` | `/users` | Membuat user baru    |
 
 ### Mendapatkan semua user
 
@@ -172,56 +172,6 @@ Email bersifat unique pada database. Saat user berhasil dibuat, cache key `users
 4. Hasil MySQL disimpan ke Redis selama 5 menit.
 5. `POST /api/v1/users` menghapus cache `users` setelah data berhasil disimpan.
 
-## Docker
-
-Menjalankan semua dependency:
-
-```bash
-docker compose up -d
-```
-
-Melihat status container:
-
-```bash
-docker compose ps
-```
-
-Melihat log:
-
-```bash
-docker compose logs -f
-```
-
-Menghentikan dan menghapus container:
-
-```bash
-docker compose down
-```
-
-## Pengembangan
-
-Memformat source code:
-
-```bash
-go fmt ./...
-```
-
-Memeriksa dependency dan kompilasi:
-
-```bash
-go mod tidy
-go test ./...
-go build ./cmd
-```
-
-## Catatan
-
-- Server saat ini berjalan di port `8080`.
-- Redis tidak memiliki password pada konfigurasi Docker Compose bawaan.
-- Password MySQL development pada contoh adalah `root`; gunakan kredensial yang aman untuk production.
-- Proyek belum memiliki endpoint `GET /users/:id`, `PUT`, dan `DELETE`.
-- Proyek belum memiliki authentication, authorization, atau validation schema yang lengkap.
-
 ## Kontribusi
 
 1. Fork repository ini.
@@ -229,7 +179,3 @@ go build ./cmd
 3. Commit perubahan: `git commit -m "feat: tambah fitur baru"`.
 4. Push branch: `git push origin feature/nama-fitur`.
 5. Buat Pull Request.
-
-## Lisensi
-
-Tambahkan lisensi proyek Anda di sini, misalnya MIT, Apache 2.0, atau GPL-3.0.
