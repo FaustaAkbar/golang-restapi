@@ -1,0 +1,85 @@
+
+# =====================================
+# Go Build & Binary
+# =====================================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.app
+*.bin
+
+# Build output directories
+/bin/
+/build/
+/dist/
+/tmp/
+
+# =====================================
+# Go Workspace & Vendor
+# =====================================
+vendor/
+
+# Go workspace files (optional)
+go.work
+go.work.sum
+
+# =====================================
+# Environment Variables & Secrets
+# =====================================
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# =====================================
+# Logs
+# =====================================
+*.log
+logs/
+
+# =====================================
+# IDE & Editors
+# =====================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =====================================
+# Development Tools (Air)
+# =====================================
+.air/
+.air.toml
+.air.conf
+
+# =====================================
+# Test & Coverage
+# =====================================
+coverage.out
+coverage.html
+*.coverprofile
+
+# =====================================
+# Database Files
+# =====================================
+*.sqlite
+*.sqlite3
+*.db
+
+# =====================================
+# OS Temporary Files
+# =====================================
+*.tmp
+*.temp
